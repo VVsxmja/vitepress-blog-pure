@@ -1,5 +1,6 @@
 {
   "plugins": {
-    "@unocss/postcss": {}
+    "@unocss/postcss": {},
+    "postcss-nesting": {}
   }
 }
