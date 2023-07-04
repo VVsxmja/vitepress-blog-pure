@@ -4,7 +4,7 @@
 
 > 2023-7-5：
 > 
-> Demo 暂时坏掉了，因为 VitePress 没有根据 `base` 生成正确的内链地址（Github Pages 只能部署到子目录）。
+> Demo 暂时坏掉了，因为这个仓库的 Github Pages 需要部署到子目录，而 VitePress 没有根据 `base` 生成正确的内链地址。
 > 
 > 已经看到有[一个PR](https://github.com/vuejs/vitepress/pull/2578)修复这个 bug 了。等更新。
 >
@@ -30,11 +30,27 @@ git clone https://github.com/VVsxmja/vitepress-blog-pure.git
 npm install
 ```
 
+#### 写文章
+
+关于写文章需要注意的地方见后文。
+
 #### 预览
 
 ```shell
 npm run dev
 ```
+
+### 写文章的格式
+
+这个主题支持 VitePress 到目前（2023-7-5）支持的所有 Markdown 扩展语法。
+
+#### frontmatter
+
+这个主题使用的 frontmatter 字段如下：
+
+- `layout` ：为 `home` 表示该页为首页。
+- `title` ：文章的标题，会被展示在首页文章列表和浏览器标签上。
+- `date` ：文章的创建日期，用于在首页文章列表中给文章排序。
 
 ### 写的文章放在哪里
 
