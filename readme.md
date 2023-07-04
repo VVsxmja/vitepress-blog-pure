@@ -12,19 +12,45 @@
 
 ## 使用方法
 
-这些路径上的文章会被自动展示在网站中。
+### 怎么安装
 
-### `index.md`
+以后会做成 npm package 。
 
-博客的首页。里面的内容会被展示在文章列表的上方。
+现在的使用方法：
 
-### `posts/*.md`
+#### clone 这个仓库
+
+```shell
+git clone https://github.com/VVsxmja/vitepress-blog-pure.git
+```
+
+#### 安装依赖
+
+```shell
+npm install
+```
+
+#### 预览
+
+```shell
+npm run dev
+```
+
+### 写的文章放在哪里
+
+下面这些路径上的文章会被自动展示在网站中。
+
+#### `index.md`
+
+博客的首页。里面的内容会被展示在首页的文章列表上方。
+
+#### `posts/*.md`
 
 `posts/` 目录下的所有文章，会被按日期排序后展示在首页的文章列表中。
 
-### 其他路径
+#### 其他路径
 
-你当然可以把文章存储在你想要的任何地方。但其他地方的文档不会被自动展示。你需要自行添加链接或者[包含](https://vitepress.dev/guide/markdown#markdown-file-inclusion)它们。
+你当然可以把文章存储在你想要的任何地方。但其他地方的文档不会被自动展示。你需要自行添加指向它们的链接，或者[包含](https://vitepress.dev/guide/markdown#markdown-file-inclusion)它们。
 
 ## 待实现的功能
 
