@@ -4,6 +4,7 @@ import UnoCSS from "unocss/vite";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "VitePress Blog Pure",
+  base: "/vitepress-blog-pure/", /* for Github Pages */
   vite: {
     plugins: [UnoCSS()],
   },
