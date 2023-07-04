@@ -1,0 +1,369 @@
+@unocss preflight;
+@unocss default;
+
+@unocss;
+
+html,
+body {
+  margin: 0;
+}
+
+.md-content {
+  @apply text-lg !my-4;
+
+  --code-font-size: 0.875rem;
+  --code-line-height: calc(var(--code-font-size) * 1.5);
+  --code-background-color: #f2f2f2;
+  --code-text-color: #d4d4d4;
+}
+
+/* ------------------------------------------------
+Code Block Groups
+*/
+
+.md-content div.vp-code-group {
+  @apply flex flex-col relative;
+
+  & > div.blocks {
+    @apply bg-[var(--code-background-color)] rounded-b-md relative;
+
+    & > div[class*="language-"] {
+      @apply my-0;
+    }
+
+    & > div[class*="language-"]:not(.active) {
+      /* hide not activated tabs */
+      @apply hidden;
+    }
+  }
+
+  & > div.tabs {
+    @apply bg-[var(--code-background-color)] rounded-t-md flex-row flex;
+    @apply shadow z-25;
+
+    & > input {
+      @apply hidden;
+    }
+
+    & > label {
+      @apply box-border px-4 py-2 font-mono font-bold color-gray-5 text-sm border-0 border-b-3 border-solid border-transparent transition duration-200;
+    }
+
+    & > input:checked + label {
+      @apply border-[var(--code-text-color)];
+    }
+  }
+}
+
+/* ------------------------------------------------
+Code Block
+*/
+
+/* .vp-doc [class*="language-"] > button.copy.copied::before,
+.vp-doc [class*="language-"] > button.copy:hover.copied::before {
+  position: relative;
+  top: -1px;
+  left: -65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--vp-code-copy-code-hover-border-color);
+  border-right: 0;
+  border-radius: 4px 0 0 4px;
+  width: 64px;
+  height: 40px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--vp-code-copy-code-active-text);
+  background-color: var(--vp-code-copy-code-hover-bg);
+  white-space: nowrap;
+  content: "Copied";
+} */
+
+/* style for code block */
+.md-content div[class*="language-"] {
+  @apply relative text-sm my-4;
+  @apply bg-[var(--code-background-color)] rounded-md flex flex-row-reverse;
+
+  /* flex is only for code block and line numbers */
+  /* other elements are floating */
+  & > :not(pre.shiki, div.line-numbers-wrapper) {
+    @apply absolute;
+  }
+
+  /* style for line numbers on the left */
+  & > div.line-numbers-wrapper {
+    @apply flex-initial basis-[20px];
+    @apply font-mono text-[var(--code-text-color)];
+    line-height: var(--code-line-height);
+    font-size: var(--code-font-size);
+    @apply py-[14px] px-2;
+
+    /* TODO: fix line number right border */
+    @apply !border-0 !border-r-20 mx-1 !border-white;
+  }
+
+  /* disable language tag */
+  & > span.lang {
+    @apply hidden;
+  }
+
+  /* style for copy button in code block */
+  & > button.copy {
+    @apply i-mdi-clipboard-outline?bg text-[var(--code-background-color)] z-50;
+    font-size: calc(var(--code-font-size) * 1.5);
+    margin: calc(var(--code-font-size) * 0.75);
+    box-shadow: 0 0 8px 2px var(--code-text-color);
+
+    /* TODO: fix icon color */
+    @apply rounded-md border-0 !w-8 !h-8 cursor-pointer !bg-[var(--code-background-color)] !bg-center !bg-[length:75%];
+
+    /* only show when hover or focus */
+    @apply opacity-0 transition-opacity;
+
+    &.copied {
+      @apply i-mdi-clipboard-check-outline?bg text-[var(--code-background-color)] text-2xl;
+    }
+  }
+
+  /* only show when hover or focus */
+  &:hover > button.copy,
+  & > button.copy:focus {
+    /* show copy button only when hover of focus */
+    @apply opacity-100;
+  }
+
+  /* style for container of code lines */
+  & > pre.shiki {
+    /* layout */
+    @apply grow overflow-x-auto relative;
+
+    /* default */
+    & > code {
+      @apply font-mono;
+      line-height: var(--code-line-height);
+      font-size: var(--code-font-size);
+
+      /* default */
+      & > span.line {
+        @apply px-4 box-border;
+
+        /* default highlight style */
+        &.highlighted {
+          @apply bg-[#e2e2e2] inline-block w-full;
+
+          &.warning {
+            @apply bg-orange-2;
+          }
+
+          &.error {
+            @apply bg-red-2;
+          }
+        }
+      }
+    }
+
+    /* style for diff */
+    &.has-diff > code > span.line {
+      &.diff {
+        @apply inline-block w-full;
+        &::before {
+          @apply absolute px-[0.1rem];
+        }
+        &.remove {
+          @apply bg-red-2;
+          &::before {
+            @apply content-["-"] color-red-5;
+          }
+        }
+        &.add {
+          @apply bg-green-2;
+          &::before {
+            @apply content-["+"] color-green-5;
+          }
+        }
+      }
+    }
+  }
+
+  /* style of focus */
+  &:hover > pre.shiki.has-focused-lines > code > span.line:not(.has-focus) {
+    /* if hover, remove blur */
+    @apply blur-0;
+  }
+  & > pre.shiki.has-focused-lines > code > span.line:not(.has-focus) {
+    /* otherwise, blur */
+    @apply blur-[0.1rem] transition duration-100;
+  }
+}
+
+.md-content :not(pre) > code {
+  /* style for inline <code> */
+  @apply rounded-md bg-[var(--code-background-color)] px-[6px] py-[2px];
+  @apply font-mono;
+  @apply text-[90%];
+}
+
+.md-content :is(h1, h2, h3, h4, h5, h6) {
+  &:not(:has(code)) {
+    /* line height for headers without a <code> */
+    @apply leading-[1.25em];
+  }
+
+  &:has(code) {
+    /* line height for headers with a <code> */
+    @apply leading-[max(calc(1em+8px),1.25em)];
+  }
+}
+
+/* ------------------------------------------------
+Header Anchor
+*/
+
+.md-content :is(h1, h2, h3, h4, h5, h6) {
+  & a.header-anchor {
+    /* style for the # floating before headers */
+    @apply float-left ml-[-1em] font-black select-none;
+    @apply opacity-0 transition duration-200;
+
+    &:before {
+      content: "#";
+    }
+  }
+  &:hover a.header-anchor,
+  & a.header-anchor:focus {
+    @apply opacity-100;
+  }
+}
+
+/* ------------------------------------------------
+Links
+*/
+
+.md-content a {
+  /* All Links */
+  @apply font-500 underline decoration-2 transition duration-100 color-sky-5;
+
+  &:hover {
+    @apply decoration-3 color-sky-4;
+  }
+
+  &:active {
+    @apply decoration-3 color-sky-6;
+  }
+
+  &[target="_blank"]::after {
+    /* icon suffix for External Links */
+
+    /* text fallback, also determine size of icon */
+    content: " ↗ ";
+    white-space: pre;
+
+    /* icon */
+    @apply i-mdi-link-variant;
+  }
+}
+
+/* ------------------------------------------------
+List
+*/
+
+.md-content ul,
+.md-content ol {
+  @apply mx-4 my-2 pl-4;
+}
+
+.md-content ul {
+  /* unordered list */
+  @apply list-disc;
+}
+
+.md-content ol {
+  /* ordered list */
+  @apply list-decimal;
+}
+
+.md-content li + li {
+  /* space between <li>s */
+  @apply mt-2;
+}
+
+/* ------------------------------------------------
+Table
+*/
+
+.md-content table {
+  @apply block border-collapse mx-2 overflow-x-auto;
+}
+
+.md-content tr {
+  @apply transition;
+
+  &:hover {
+    @apply bg-[var(--code-background-color)];
+  }
+}
+
+.md-content :is(th, td) {
+  @apply border-1 border-solid border-[var(--code-text-color)] py-2 px-4;
+  @apply text-[80%] text-left;
+}
+
+.md-content th {
+  @apply font-bold;
+  @apply bg-[var(--code-background-color)];
+}
+
+/* ------------------------------------------------
+Custom Block
+*/
+
+.md-content .custom-block {
+  @apply my-4 mx-0 rounded-md border-2 border-solid bg-inherit;
+
+  /* default colors */
+  @apply color-inherit border-gray-6 shadow-gray-6 shadow-[0_0_2px_var(--un-shadow-color)];
+
+  &:is(div) {
+    @apply p-0;
+    & > .custom-block-title {
+      /* special style for title */
+      @apply py-1 px-4 mt-0 mb-4 mx-0 color-white;
+    }
+    & > * {
+      /* default style for the rest */
+      @apply mx-4 my-4 p-0;
+    }
+    &.info {
+      & > .custom-block-title {
+        @apply bg-gray-6;
+      }
+    }
+    &.tip {
+      @apply border-green-6 shadow-green-6;
+      & > .custom-block-title {
+        @apply bg-green-6;
+      }
+    }
+    &.warning {
+      @apply border-orange-6 shadow-orange-6;
+      & > .custom-block-title {
+        @apply bg-orange-6;
+      }
+    }
+    &.danger {
+      @apply color-red-6 border-red-6 shadow-red-6;
+      & > .custom-block-title {
+        @apply bg-red-6;
+      }
+    }
+  }
+
+  &:is(details) {
+    @apply p-4;
+    & > summary {
+      @apply cursor-pointer;
+    }
+  }
+}

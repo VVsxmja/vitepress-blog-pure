@@ -1,0 +1,31 @@
+{
+  "devDependencies": {
+    "@iconify-json/mdi": "^1.1.52",
+    "@types/node": "^20.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "@unocss/eslint-config": "^0.53.4",
+    "@unocss/postcss": "^0.53.4",
+    "@unocss/preset-icons": "^0.53.4",
+    "@unocss/preset-web-fonts": "^0.53.4",
+    "@unocss/preset-wind": "^0.53.4",
+    "@unocss/reset": "^0.53.4",
+    "@vueuse/core": "^10.2.1",
+    "eslint": "^8.44.0",
+    "eslint-plugin-vue": "^9.15.1",
+    "postcss": "^8.4.24",
+    "postcss-load-config": "^4.0.1",
+    "prettier-eslint": "^15.0.1",
+    "unocss": "^0.53.4",
+    "vitepress": "^1.0.0-beta.5",
+    "vue": "^3.3.4"
+  },
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "format": "npx prettier --write .",
+    "lint": "npx eslint .vitepress --fix"
+  },
+  "type": "module"
+}
