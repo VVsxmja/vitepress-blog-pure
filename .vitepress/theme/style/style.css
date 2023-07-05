@@ -232,11 +232,11 @@ Header Anchor
 .md-content :is(h1, h2, h3, h4, h5, h6) {
   & a.header-anchor {
     /* style for the # floating before headers */
-    @apply float-left ml-[-1em] font-black select-none;
+    @apply float-left ml-[-1em] font-black select-none no-underline;
     @apply opacity-0 transition duration-200;
 
     &:before {
-      content: "#";
+      @apply content-["#"];
     }
   }
   &:hover a.header-anchor,

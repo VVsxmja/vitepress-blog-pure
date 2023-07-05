@@ -33,7 +33,12 @@ const blogTitle: string = useData().site.value.title;
 }
 
 .navbar-title {
-  @apply text-4xl font-serif antialiased font-black;
-  @apply no-underline text-black;
+  @apply text-4xl font-serif antialiased font-black text-black;
+
+  /* animation */
+  @apply underline underline-transparent transition duration-200;
+  &:hover {
+    @apply underline-black;
+  }
 }
 </style>
