@@ -18,7 +18,15 @@ body {
 }
 
 /* ------------------------------------------------
-Code Block Groups
+Block Quote
+*/
+
+.md-content blockquote {
+  @apply box-border m-0 my-4 ml-3 p-0 pl-5 border-0 border-l-4 border-solid border-[var(--code-text-color)];
+}
+
+/* ------------------------------------------------
+Code Block Group
 */
 
 .md-content div.vp-code-group {
