@@ -40,6 +40,12 @@ npm install
 npm run dev
 ```
 
+或
+
+```shell
+npx vitepress dev
+```
+
 ### 写文章的格式
 
 这个主题支持 VitePress 到目前（2023-7-5）支持的所有 Markdown 扩展语法。
@@ -67,6 +73,16 @@ npm run dev
 #### 其他路径
 
 你当然可以把文章存储在你想要的任何地方。但其他地方的文档不会被自动展示。你需要自行添加指向它们的链接，或者[包含](https://vitepress.dev/guide/markdown#markdown-file-inclusion)它们。
+
+### 部署
+
+执行 `npm run build` 或者 `npx vitepress build` 可以生成静态网站。
+
+如果需要将博客部署在子目录下（例如 `someone.github.io/someone_s_blog/` ），则需要在 [`.vitepress/config.ts`](.vitepress/config.ts) 中更改 `base` 字段为对应的子目录。
+
+#### GitHub Pages
+
+这个仓库提供了一个 [GitHub Action Workflow](.github/workflows/pages.yml) 可供参考。
 
 ## 待实现的功能
 
