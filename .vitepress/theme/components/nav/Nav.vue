@@ -6,7 +6,7 @@ const blogTitle: string = useData().site.value.title;
 
 <template>
   <div class="navbar">
-    <div class="navbar-container responsive-padding">
+    <div class="navbar-container responsive-width">
       <a href="/" class="navbar-title">{{ blogTitle }}</a>
       <div class="hidden sm:block" id="NavButtons">
         <div class="flex flex-row items-center">
@@ -28,8 +28,7 @@ const blogTitle: string = useData().site.value.title;
 }
 
 .navbar-container {
-  @apply flex flex-row items-center flex-wrap justify-between mx-auto p-4;
-  @apply max-w-3xl xl:px-[20%] mx-auto;
+  @apply flex flex-row items-center flex-wrap justify-between mx-auto py-4;
 }
 
 .navbar-title {

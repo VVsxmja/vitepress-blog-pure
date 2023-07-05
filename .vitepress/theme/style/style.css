@@ -1,4 +1,4 @@
-@unocss preflight;
+@unocss preflights;
 @unocss default;
 
 @unocss;
@@ -6,6 +6,10 @@
 html,
 body {
   margin: 0;
+}
+
+.responsive-width {
+  @apply max-w-3xl px-4 mx-auto;
 }
 
 .md-content {
@@ -92,9 +96,10 @@ Code Block
 /* style for code block */
 .md-content div[class*="language-"] {
   @apply relative text-sm my-4;
-  @apply bg-[var(--code-background-color)] rounded-md flex flex-row-reverse;
 
   /* flex is only for code block and line numbers */
+  @apply bg-[var(--code-background-color)] rounded-md flex flex-row-reverse;
+
   /* other elements are floating */
   & > :not(pre.shiki, div.line-numbers-wrapper) {
     @apply absolute;
