@@ -19,12 +19,21 @@ export default createContentLoader("posts/*.md", {
   excerpt: true,
   transform(raw: ContentData[]): Post[] {
     return raw
-      .map(({ url, frontmatter, excerpt }) => ({
-        title: frontmatter.title,
-        url,
-        excerpt,
-        date: formatDate(frontmatter.date),
-      }))
+      .map(({ url, frontmatter, excerpt }) => {
+        if (frontmatter.excerpt === true) {
+          // render excerpt as-is
+        } else if (typeof frontmatter.excerpt === "string") {
+          excerpt = frontmatter.excerpt;
+        } else {
+          excerpt = "";
+        }
+        return {
+          title: frontmatter.title,
+          url,
+          excerpt,
+          date: formatDate(frontmatter.date),
+        };
+      })
       .sort((a, b) => b.date.time - a.date.time);
   },
 });

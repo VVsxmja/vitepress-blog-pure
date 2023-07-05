@@ -58,13 +58,15 @@ npx vitepress dev
 - `title` ：文章的标题，会被展示在首页文章列表和浏览器标签上。
 - `date` ：文章的创建日期，用于在首页文章列表中给文章排序。
 
-#### 摘记 Excerpt
+#### 摘记
 
-文章中第一个分割线（`---`）之前的内容，会被视作这篇文章的一个摘记，渲染到首页的文章列表中对应文章标题的下方。
+摘记，也可以理解为一篇文章的简介，会被展示在首页文章列表中，对应文章标题的下方。
 
-所以就算你一时没有想好拿什么当做摘记，也一定要记得在 frontmatter 下面再加一个分割线，否则正文会被错误地渲染到目录里面。
+- 默认情况下，文章的摘记为空。
+- 如果在 frontmatter 中 `excerpt` 字段的值为 `true` ，则文章中第一个分割线（`---`）之前的内容会被视作这篇文章的摘记。
+- 如果在 frontmatter 中 `excerpt` 字段的值为一个字符串，则这个字符串会被视作这篇文章的摘记。
 
-具体可以参考[这里](https://github.com/vuejs/vitepress/blob/71eb11f72e60706a546b756dc3fd72d06e2ae4e2/src/node/markdown/env.ts#L12C1-L18C19)
+可以参考 [`posts/test-post.md`](posts/test-post.md) 、 [`posts/markdown-examples.md`](posts/markdown-examples.md) 和 [`posts/api-examples.md`](posts/api-examples.md) 以及它们在 Demo 中的文章列表内的效果，分别对应上面的三种情况。
 
 ### 写的文章放在哪里
 

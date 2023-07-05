@@ -1,15 +1,16 @@
 ---
 title: Markdown Extensions
 date: 2049-10-12
+excerpt: true
 ---
 
 这个页面是从[VitePress 文档](https://vitepress.dev/guide/markdown)原样复制来的。
 
 用于展示这个博客主题的各种元素的样式。
 
-VitePress comes with built in Markdown Extensions.
-
 ---
+
+VitePress comes with built in Markdown Extensions.
 
 ## Header Anchors
 
