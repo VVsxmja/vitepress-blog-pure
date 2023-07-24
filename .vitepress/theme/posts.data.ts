@@ -1,16 +1,7 @@
 // modified from https://github.com/vuejs/blog/blob/main/.vitepress/theme/posts.data.ts
 
-import { createContentLoader, ContentData } from "vitepress";
-
-interface Post {
-  title: string;
-  url: string;
-  date: {
-    time: number;
-    string: string;
-  };
-  excerpt: string | undefined;
-}
+import { createContentLoader, ContentData} from "vitepress";
+import { Post, formatDate } from "./postUtil";
 
 declare const data: Post[];
 export { data };
@@ -19,34 +10,40 @@ export default createContentLoader("posts/*.md", {
   excerpt: true,
   transform(raw: ContentData[]): Post[] {
     return raw
-      .map(({ url, frontmatter, excerpt }) => {
-        if (frontmatter.excerpt === true) {
-          // render excerpt as-is
-        } else if (typeof frontmatter.excerpt === "string") {
-          excerpt = frontmatter.excerpt;
-        } else {
-          excerpt = "";
-        }
-        return {
-          title: frontmatter.title,
-          url,
-          excerpt,
-          date: formatDate(frontmatter.date),
+      .map((content: ContentData): Post | null => {
+        // default value
+        const post: Post = {
+          title: content.frontmatter.title ?? "Untitled",
+          url: content.url,
+          src: content.url.replace(/\.html$/, ".md").replace(/^\//, ""), // hack, can write a better implementation
+          excerpt: "",
+          date: null,
+          lastUpdated: null,
         };
+
+        // process excerpt
+        if (content.frontmatter?.excerpt === true) {
+          // render excerpt as-is
+          post.excerpt = content.excerpt ?? "";
+        } else if (typeof content.frontmatter?.excerpt === "string") {
+          // excerpt is in frontmatter
+          post.excerpt = content.frontmatter.excerpt;
+        } else {
+          // set excerpt to empty
+          post.excerpt = "";
+        }
+
+        // process date
+        if (typeof content.frontmatter?.date === "string") {
+          // frontmatter contains valid date info
+          const frontDate = new Date(content.frontmatter.date);
+          if (!isNaN(frontDate.getTime())) {
+            post.date = frontDate;
+          }
+        }
+
+        return post;
       })
-      .sort((a, b) => b.date.time - a.date.time);
+      .filter((post): post is Post => post !== null);
   },
 });
-
-function formatDate(raw: string): Post["date"] {
-  const date = new Date(raw);
-  date.setUTCHours(12);
-  return {
-    time: +date,
-    string: date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }),
-  };
-}

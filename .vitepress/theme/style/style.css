@@ -13,7 +13,7 @@ body {
 }
 
 .md-content {
-  @apply text-lg !my-4;
+  @apply text-lg my-4;
 
   --code-font-size: 0.875rem;
   --code-line-height: calc(var(--code-font-size) * 1.5);

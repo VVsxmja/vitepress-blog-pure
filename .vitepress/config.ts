@@ -14,4 +14,5 @@ export default defineConfig({
     theme: "github-light",
     // lineNumbers: true,
   },
+  lang: "zh-CN"
 });
