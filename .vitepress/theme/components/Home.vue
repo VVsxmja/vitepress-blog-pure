@@ -27,7 +27,7 @@
 <script setup lang="ts">
 // import Date from './Date.vue'
 import { data as posts } from "../posts.data";
-import { Post, formatDate } from "../postUtil"
+import { Post, formatDate } from "../utils/posts"
 import { data as timestamps } from "../timestamp.data";
 import { useData } from "vitepress";
 

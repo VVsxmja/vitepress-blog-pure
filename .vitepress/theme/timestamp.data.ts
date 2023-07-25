@@ -3,7 +3,7 @@ import { defineLoader } from "vitepress";
 import * as git from "isomorphic-git";
 import fs from "fs";
 
-import { TimestampInfo } from "./postUtil";
+import { TimestampInfo } from "./utils/posts";
 
 declare const data: TimestampInfo;
 export { data };
