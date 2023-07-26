@@ -9,6 +9,10 @@
 > 已经看到有[一个 PR](https://github.com/vuejs/vitepress/pull/2578)修复这个 bug 了。等更新。
 >
 > 如果 clone 下来在本地跑的话应该是没问题的。
+>
+> 2023-7-26:
+>
+> 这个 PR 已经合入主线了，等下一个 release 应该就有了。
 
 ## 使用方法
 
@@ -99,6 +103,8 @@ npx vitepress dev
 这个主题还正在施工中，因为是纯自定义主题，而不是默认主题的扩展，所以很多原版自带的功能尚未完成。
 
 见 https://github.com/VVsxmja/vitepress-blog-pure/issues/1 。
+
+如果有什么你觉得应该有却没有的功能，欢迎提 issue 来讨论。
 
 ## 感谢
 
