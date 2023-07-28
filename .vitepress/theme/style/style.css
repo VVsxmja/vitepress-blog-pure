@@ -59,6 +59,8 @@ Code Block Group
 
     & > label {
       @apply box-border px-4 py-2 font-mono font-bold color-gray-5 text-sm border-0 border-b-3 border-solid border-transparent transition duration-200;
+
+      @apply hover:cursor-pointer;
     }
 
     & > input:checked + label {
