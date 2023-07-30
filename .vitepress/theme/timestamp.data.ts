@@ -33,7 +33,7 @@ export default defineLoader({
             updated: new Date(updated * 1000),
           };
         } catch (e) {
-          console.error(`Failed to get timestamp for ${pagePath}. Error: `, e);
+          // do nothing
         }
       })
     );

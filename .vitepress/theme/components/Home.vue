@@ -40,7 +40,6 @@ const lang = site.value.lang;
 const sortedPost = posts.map((post: Post): Post => {
   // try to get date from git timestamp
   if (!timestamps[post.src]) {
-    console.error(post.src)
     return post;
   }
   if (!post.date) {

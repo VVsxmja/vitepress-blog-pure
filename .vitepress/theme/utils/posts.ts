@@ -20,10 +20,6 @@ export interface Post {
 }
 
 export function formatDate(date: Date | null, loacles: string = "en-US"): PostDate | null {
-  // if (!(date instanceof Date)) {
-  //   console.error(date, typeof date)
-  //   return null;
-  // }
   if (date === null) {
     return null;
   }
