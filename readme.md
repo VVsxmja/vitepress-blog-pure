@@ -30,8 +30,10 @@ git clone https://github.com/VVsxmja/vitepress-blog-pure.git
 
 #### 安装依赖
 
+建议使用 [pnpm](https://pnpm.io/)
+
 ```shell
-npm install
+pnpm install
 ```
 
 #### 写文章
@@ -41,13 +43,13 @@ npm install
 #### 预览
 
 ```shell
-npm run dev
+pnpm run dev
 ```
 
 或
 
 ```shell
-npx vitepress dev
+pnpx vitepress dev
 ```
 
 ### 写文章的格式

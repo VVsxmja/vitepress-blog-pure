@@ -29,5 +29,6 @@
     "format": "npx prettier --write .",
     "lint": "npx eslint .vitepress --fix"
   },
-  "type": "module"
+  "type": "module",
+  "packageManager": "pnpm@8.6.10"
 }
