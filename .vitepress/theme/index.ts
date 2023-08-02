@@ -6,6 +6,7 @@ import "./style/style.css";
 
 export default {
   Layout,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   enhanceApp({ app, router, siteData }) {
     // ...
   },
