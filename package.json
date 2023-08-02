@@ -26,8 +26,8 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "format": "npx prettier --write .",
-    "lint": "npx eslint .vitepress --fix"
+    "format": "prettier --write .",
+    "lint": "eslint .vitepress --fix"
   },
   "type": "module",
   "packageManager": "pnpm@8.6.10"
