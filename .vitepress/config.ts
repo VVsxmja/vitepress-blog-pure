@@ -4,7 +4,7 @@ import UnoCSS from "unocss/vite";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "VitePress Blog Pure",
-  base: "/vitepress-blog-pure/", /* for Github Pages */
+  base: "/vitepress-blog-pure/" /* for Github Pages */,
   vite: {
     plugins: [UnoCSS()],
   },
@@ -14,5 +14,5 @@ export default defineConfig({
     theme: "github-light",
     // lineNumbers: true,
   },
-  lang: "zh-CN"
+  lang: "zh-CN",
 });

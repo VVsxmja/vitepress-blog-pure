@@ -1,6 +1,6 @@
 // modified from https://github.com/vuejs/blog/blob/main/.vitepress/theme/posts.data.ts
 
-import { createContentLoader, ContentData} from "vitepress";
+import { createContentLoader, ContentData } from "vitepress";
 import { Post } from "./utils/posts";
 
 declare const data: Post[];

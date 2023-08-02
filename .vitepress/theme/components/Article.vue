@@ -1,3 +1,3 @@
 <template>
-    <Content class="md-content" />
+  <Content class="md-content" />
 </template>

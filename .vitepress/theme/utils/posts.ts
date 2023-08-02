@@ -19,7 +19,10 @@ export interface Post {
   excerpt: string;
 }
 
-export function formatDate(date: Date | null, loacles: string = "en-US"): PostDate | null {
+export function formatDate(
+  date: Date | null,
+  loacles: string = "en-US"
+): PostDate | null {
   if (date === null) {
     return null;
   }

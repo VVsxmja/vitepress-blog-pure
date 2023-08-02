@@ -17,10 +17,8 @@ const { page, frontmatter } = useData();
 </template>
 
 <style scoped>
-
 main.main-style {
   /* all use serif font */
   @apply font-serif;
 }
-
 </style>

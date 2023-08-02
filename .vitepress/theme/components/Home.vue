@@ -14,10 +14,18 @@
         <article>
           <a class="post-title-link" :href="url">{{ title }}</a>
           <div class="flex flex-row my-4">
-            <p v-if="date" class="post-timestamp post-date">{{ date.string }}</p>
-            <p v-if="lastUpdated" class="post-timestamp post-lastupdate">{{ lastUpdated.string }}</p>
+            <p v-if="date" class="post-timestamp post-date">
+              {{ date.string }}
+            </p>
+            <p v-if="lastUpdated" class="post-timestamp post-lastupdate">
+              {{ lastUpdated.string }}
+            </p>
           </div>
-          <div v-if="excerpt" class="max-w-none text-gray-600 text-lg md-content" v-html="excerpt"></div>
+          <div
+            v-if="excerpt"
+            class="max-w-none text-gray-600 text-lg md-content"
+            v-html="excerpt"
+          ></div>
         </article>
       </li>
     </ul>
@@ -27,7 +35,7 @@
 <script setup lang="ts">
 // import Date from './Date.vue'
 import { data as posts } from "../posts.data";
-import { Post, formatDate } from "../utils/posts"
+import { Post, formatDate } from "../utils/posts";
 import { data as timestamps } from "../timestamp.data";
 import { useData } from "vitepress";
 
@@ -37,38 +45,41 @@ const blogDescription: string = frontmatter.value.subtext;
 const lang = site.value.lang;
 
 // refactor this
-const sortedPost = posts.map((post: Post): Post => {
-  // try to get date from git timestamp
-  if (!timestamps[post.src]) {
+const sortedPost = posts
+  .map((post: Post): Post => {
+    // try to get date from git timestamp
+    if (!timestamps[post.src]) {
+      return post;
+    }
+    if (!post.date) {
+      post.date = timestamps[post.src].created;
+    }
+    if (!post.lastUpdated) {
+      post.lastUpdated = timestamps[post.src].updated;
+    }
     return post;
-  }
-  if (!post.date) {
-    post.date = timestamps[post.src].created;
-  }
-  if (!post.lastUpdated) {
-    post.lastUpdated = timestamps[post.src].updated;
-  }
-  return post;
-}).map((post: Post) => {
-  return {
-    ...post,
-    date: formatDate(post.date, lang),
-    lastUpdated: formatDate(post.lastUpdated, lang),
-  }
-}).sort((a, b) => {
-  if (!!a.date && !!b.date) {
-    return b.date.time - a.date.time;
-  } else {
-    return 0;
-  }
-});
+  })
+  .map((post: Post) => {
+    return {
+      ...post,
+      date: formatDate(post.date, lang),
+      lastUpdated: formatDate(post.lastUpdated, lang),
+    };
+  })
+  .sort((a, b) => {
+    if (!!a.date && !!b.date) {
+      return b.date.time - a.date.time;
+    } else {
+      return 0;
+    }
+  });
 </script>
 
 <style scoped>
 ul.post-list {
   @apply list-none p-0 border-0 divide-y-2 divide-solid divide-gray-200;
 
-  &>li {
+  & > li {
     @apply border-x-0 py-12 px-2;
   }
 }
