@@ -16,6 +16,6 @@
     "sourceType": "module"
   },
   "plugins": ["vue", "@typescript-eslint"],
-  "ignorePatterns": [".vitepress/cache"],
+  "ignorePatterns": [".vitepress/cache", ".vitepress/dist"],
   "rules": {}
 }
