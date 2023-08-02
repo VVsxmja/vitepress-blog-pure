@@ -26,7 +26,7 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "format": "prettier --write .",
+    "format": "prettier --write .vitepress",
     "lint": "eslint .vitepress"
   },
   "type": "module",
