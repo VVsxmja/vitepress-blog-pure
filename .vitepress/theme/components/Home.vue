@@ -13,11 +13,11 @@
       <li v-for="{ title, url, date, lastUpdated, excerpt } of sortedPost">
         <article>
           <a class="post-title-link" :href="url">{{ title }}</a>
-          <div class="flex flex-row my-4">
-            <p v-if="date" class="post-timestamp post-date">
+          <div class="post-timestamp">
+            <p v-if="date" class="post-date">
               {{ date.string }}
             </p>
-            <p v-if="lastUpdated" class="post-timestamp post-lastupdate">
+            <p v-if="lastUpdated" class="post-lastupdate">
               {{ lastUpdated.string }}
             </p>
           </div>
@@ -94,21 +94,5 @@ a.post-title-link {
   &:active {
     @apply decoration-3 text-gray-600;
   }
-}
-
-p.post-timestamp {
-  &.post-date::before {
-    content: "[P] ";
-    white-space: pre;
-    @apply i-mdi-calendar-blank;
-  }
-
-  &.post-lastupdate::before {
-    content: "[E] ";
-    white-space: pre;
-    @apply i-mdi-calendar-edit;
-  }
-
-  @apply mr-6 ml-0 my-0;
 }
 </style>

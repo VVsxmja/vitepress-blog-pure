@@ -22,6 +22,30 @@ body {
 }
 
 /* ------------------------------------------------
+Post Timestamp
+*/
+
+div.post-timestamp {
+  @apply flex flex-row my-4;
+
+  & > p {
+    @apply mr-6 ml-0 my-0;
+
+    &.post-date::before {
+      content: "[P] ";
+      white-space: pre;
+      @apply i-mdi-calendar-blank;
+    }
+
+    &.post-lastupdate::before {
+      content: "[E] ";
+      white-space: pre;
+      @apply i-mdi-calendar-edit;
+    }
+  }
+}
+
+/* ------------------------------------------------
 Block Quote
 */
 
