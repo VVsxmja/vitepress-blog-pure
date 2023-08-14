@@ -2,18 +2,6 @@
 
 一个极简的博客框架。你最爱的 Vue 全家桶。[Demo](https://vvsxmja.github.io/vitepress-blog-pure/)
 
-> 2023-7-5：
->
-> Demo 暂时坏掉了，因为这个仓库的 Github Pages 需要部署到子目录，而 VitePress 没有根据 `base` 生成正确的内链地址。
->
-> 已经看到有[一个 PR](https://github.com/vuejs/vitepress/pull/2578)修复这个 bug 了。等更新。
->
-> 如果 clone 下来在本地跑的话应该是没问题的。
->
-> 2023-7-26:
->
-> 这个 PR 已经合入主线了，等下一个 release 应该就有了。
-
 ## 使用方法
 
 ### 怎么安装
