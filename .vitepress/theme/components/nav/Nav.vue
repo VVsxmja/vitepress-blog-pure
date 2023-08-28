@@ -10,9 +10,7 @@ const blogTitle: string = useData().site.value.title;
       <a href="/" class="navbar-title">{{ blogTitle }}</a>
       <div class="hidden sm:block" id="NavButtons">
         <div class="flex flex-row items-center">
-          <NavBarButton>按钮一号</NavBarButton>
-          <NavBarButton>按钮二号</NavBarButton>
-          <NavBarButton>按钮三号</NavBarButton>
+          <!-- <NavBarButton></NavBarButton> -->
         </div>
       </div>
       <NavBarButton class="sm:hidden"
