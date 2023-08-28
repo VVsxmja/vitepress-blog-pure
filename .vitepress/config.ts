@@ -3,8 +3,8 @@ import UnoCSS from "unocss/vite";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "VitePress Blog Pure",
-  base: "/vitepress-blog-pure/" /* for Github Pages */,
+  title: "VitePress Theme Blog Pure",
+  base: "/vitepress-theme-blog-pure/" /* for Github Pages */,
   vite: {
     plugins: [UnoCSS()],
   },
