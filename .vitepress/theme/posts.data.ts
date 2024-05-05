@@ -2,20 +2,35 @@
 
 import { createContentLoader, ContentData } from "vitepress";
 import { Post } from "./utils/posts";
+import config from "../config"
+import path from "path/posix"
 
 declare const data: Post[];
 export { data };
+
+const siteBase = config.base ?? "/"
 
 export default createContentLoader("posts/*.md", {
   excerpt: true,
   transform(raw: ContentData[]): Post[] {
     return raw
       .map((content: ContentData): Post | null => {
+        const urlAsPath = path.parse(content.url)
+        const finalUrl = path.format({
+          ...urlAsPath,
+          dir: path.join(siteBase, urlAsPath.dir),
+        })
+        const markdownSourcePath = path.format({
+          ...urlAsPath,
+          base: undefined,  // needed to make `ext` work
+          ext: "md"
+        })
+
         // default value
         const post: Post = {
           title: content.frontmatter.title ?? "Untitled",
-          url: content.url,
-          src: content.url.replace(/\.html$/, ".md").replace(/^\//, ""), // hack, can write a better implementation
+          url: finalUrl,
+          sourcePath: markdownSourcePath,
           excerpt: "",
           date: null,
           lastUpdated: null,

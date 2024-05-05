@@ -14,7 +14,10 @@ export interface Post {
   title: string;
   url: string;
   date: Date | null;
-  src: string; // this is different from the "src" in ContentData
+  /**
+   * The relative path on the filesystem to the Markdown source file.
+   */
+  sourcePath: string;
   lastUpdated: Date | null;
   excerpt: string;
 }

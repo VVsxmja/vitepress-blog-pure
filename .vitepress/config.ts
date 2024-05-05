@@ -1,12 +1,15 @@
-import { defineConfig } from "vitepress";
-import UnoCSS from "unocss/vite";
+import { DefaultTheme, RawConfigExports, defineConfig } from "vitepress";
+import UnoCSS_Vite from "unocss/vite";
+import UnoCss_PostCSS from "@unocss/postcss"
 
-// https://vitepress.dev/reference/site-config
-export default defineConfig({
-  title: "VitePress Theme Blog Pure",
-  base: "/vitepress-theme-blog-pure/" /* for Github Pages */,
+export const baseConfig = {
   vite: {
-    plugins: [UnoCSS()],
+    plugins: [UnoCSS_Vite()],
+    css: {
+      postcss: {
+        plugins: [UnoCss_PostCSS()]
+      }
+    }
   },
   appearance: true,
   lastUpdated: true,
@@ -15,4 +18,11 @@ export default defineConfig({
     // lineNumbers: true,
   },
   lang: "zh-CN",
+} satisfies RawConfigExports<DefaultTheme.Config>;
+
+// https://vitepress.dev/reference/site-config
+export default defineConfig({
+  title: "VitePress Theme Blog Pure",
+  base: "/vitepress-theme-blog-pure/" /* for Github Pages */,
+  extends: baseConfig
 });

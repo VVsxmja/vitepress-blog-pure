@@ -1,6 +1,5 @@
 // uno.config.ts
-import { defineConfig, presetIcons, presetWebFonts } from "unocss";
-import { presetWind } from "@unocss/preset-wind";
+import { defineConfig, presetIcons, presetWebFonts, presetWind } from "unocss";
 
 export default defineConfig({
   presets: [

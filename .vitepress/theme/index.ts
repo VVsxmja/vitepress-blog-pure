@@ -1,13 +1,14 @@
 // https://vitepress.dev/guide/custom-theme
+import { Theme } from "vitepress"
 import Layout from "./components/Layout.vue";
 import "virtual:uno.css";
 import "@unocss/reset/normalize.css";
 import "./style/style.css";
 
-export default {
+export const baseTheme = {
   Layout,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  enhanceApp({ app, router, siteData }) {
-    // ...
-  },
-};
+}
+
+export default {
+  extends: baseTheme,
+} satisfies Theme;

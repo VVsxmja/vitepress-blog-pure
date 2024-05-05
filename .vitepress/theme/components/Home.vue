@@ -48,14 +48,14 @@ const lang = site.value.lang;
 const sortedPost = posts
   .map((post: Post): Post => {
     // try to get date from git timestamp
-    if (!timestamps[post.src]) {
+    if (!timestamps[post.sourcePath]) {
       return post;
     }
     if (!post.date) {
-      post.date = timestamps[post.src].created;
+      post.date = timestamps[post.sourcePath].created;
     }
     if (!post.lastUpdated) {
-      post.lastUpdated = timestamps[post.src].updated;
+      post.lastUpdated = timestamps[post.sourcePath].updated;
     }
     return post;
   })
