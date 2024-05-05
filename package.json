@@ -1,26 +1,26 @@
 {
   "devDependencies": {
-    "@iconify-json/mdi": "^1.1.54",
-    "@types/node": "^20.5.7",
-    "@typescript-eslint/eslint-plugin": "^6.4.1",
-    "@typescript-eslint/parser": "^6.4.1",
-    "@unocss/eslint-config": "^0.55.3",
-    "@unocss/postcss": "^0.55.3",
-    "@unocss/preset-icons": "^0.55.3",
-    "@unocss/preset-web-fonts": "^0.55.3",
-    "@unocss/preset-wind": "^0.55.3",
-    "@unocss/reset": "^0.55.3",
-    "@vueuse/core": "^10.4.1",
-    "eslint": "^8.48.0",
-    "eslint-plugin-vue": "^9.17.0",
-    "isomorphic-git": "^1.24.5",
-    "postcss": "^8.4.28",
-    "postcss-load-config": "^4.0.1",
-    "postcss-nesting": "^12.0.1",
+    "@iconify-json/mdi": "^1.1.66",
+    "@types/node": "^20.12.8",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@unocss/eslint-config": "^0.55.7",
+    "@unocss/postcss": "^0.55.7",
+    "@unocss/preset-icons": "^0.55.7",
+    "@unocss/preset-web-fonts": "^0.55.7",
+    "@unocss/preset-wind": "^0.55.7",
+    "@unocss/reset": "^0.55.7",
+    "@vueuse/core": "^10.9.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vue": "^9.25.0",
+    "isomorphic-git": "^1.25.8",
+    "postcss": "^8.4.38",
+    "postcss-load-config": "^4.0.2",
+    "postcss-nesting": "^12.1.2",
     "prettier-eslint": "^15.0.1",
-    "unocss": "^0.55.3",
+    "unocss": "^0.55.7",
     "vitepress": "1.0.0-rc.4",
-    "vue": "^3.3.4"
+    "vue": "^3.4.26"
   },
   "scripts": {
     "dev": "vitepress dev",
@@ -30,5 +30,5 @@
     "lint": "eslint .vitepress"
   },
   "type": "module",
-  "packageManager": "pnpm@8.6.12"
+  "packageManager": "pnpm@9.0.6+sha256.0624e30eff866cdeb363b15061bdb7fd9425b17bc1bb42c22f5f4efdea21f6b3"
 }
